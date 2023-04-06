@@ -15,28 +15,27 @@
         Output: [3,4,6,16,17]
 """
 
-class Solution():
  
-    def runningSum(self, nums: list[int]) -> list[int]:
-            lista = [nums[0]]
-            for i in range(1, len(nums)):
-                nums[i] += nums[i-1]
-                lista.append(nums[i])
-            return lista
+def runningSum(nums):
+        lista = [nums[0]]
+        for i in range(1, len(nums)):
+            nums[i] += nums[i-1]
+            lista.append(nums[i])
+        return lista
 
 
-    def test_dois_elementos(self):
-        assert self.runningSum([1, 1]) == [1, 2]
-        assert self.runningSum([1, 2]) == [1, 3]
-        
-    def test_tres_elementos(self):
-        assert self.runningSum([1, 1, 1]) == [1, 2, 3]
-        assert self.runningSum([1, 2, 3]) == [1, 3, 6]
+def test_dois_elementos():
+    assert runningSum([1, 1]) == [1, 2]
+    assert runningSum([1, 2]) == [1, 3]
+    
+def test_tres_elementos():
+    assert runningSum([1, 1, 1]) == [1, 2, 3]
+    assert runningSum([1, 2, 3]) == [1, 3, 6]
 
-    def test_quatro_elementos(self):
-        assert Solution.runningSum([1, 1, 1, 1]) == [1, 2, 3, 4]
-        assert Solution.runningSum([1, 2, 3, 4]) == [1, 3, 6, 10]
+def test_quatro_elementos():
+    assert runningSum([1, 1, 1, 1]) == [1, 2, 3, 4]
+    assert runningSum([1, 2, 3, 4]) == [1, 3, 6, 10]
 
-    def test_cinco_elementos(self):
-        assert self.runningSum([1, 1, 1, 1, 1]) == [1, 2, 3, 4, 5]
-        assert self.runningSum([1, 2, 3, 4, 5]) == [1, 3, 6, 10, 15]
+def test_cinco_elementos():
+    assert runningSum([1, 1, 1, 1, 1]) == [1, 2, 3, 4, 5]
+    assert runningSum([1, 2, 3, 4, 5]) == [1, 3, 6, 10, 15]
