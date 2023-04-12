@@ -29,6 +29,17 @@ def isSubsequence(s, t):
         else:
             return False
 
+def isSubsequence2(s, t):
+    if not s:
+        return True
+    last_index = -1
+    for letter in s:
+        last_index = t.find(letter, last_index + 1)
+        print(letter, last_index)
+        if last_index == -1:
+            return False
+    return True
+
 
 def test_abc():
     assert isSubsequence("abc", "ahbgdc") == True
